@@ -1,0 +1,323 @@
+body {
+    background-color: #000; /* Dark background */
+    color: #fff; /* Light text */
+    font-family: 'Fira Code', monospace;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden; /* Prevent scrollbars on body */
+}
+body.classic-green {
+    background-color: #000;
+    color: #0f0;
+}
+
+body.dracula {
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+body.solarized-light {
+    background-color: #fdf6e3;
+    color: #586e75;
+}
+
+
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 900px;
+    height: 90vh;
+    max-height: 700px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.nav-info-block {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    margin-left: 20px;
+}
+
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.nav-link.disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.nav-link span {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover span {
+    opacity: 1;
+}
+.nav-link {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+.nav-link:hover {
+    color: #0f0; /* Terminal green */
+    text-shadow: 0 0 5px #0f0;
+}
+
+.bottom {
+    align-self: flex-end;
+}
+
+
+.terminal {
+
+    background-color: #111;
+    border: 1px solid #333;
+    flex-grow: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black */
+    border: 1px solid #333;
+    position: relative;
+    z-index: 1; /* Ensure it's above the Matrix background */
+}
+
+.terminal-content {
+    flex-grow: 1; /* Allow content to take up available space */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.4;
+    max-height: 100%; /* Important: Prevent content from overflowing the terminal */
+}
+.terminal-content {
+    scroll-behavior: smooth;
+}
+
+.terminal-content::-webkit-scrollbar {
+    display: none;
+}
+.terminal-input {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-top: 1px solid #333;
+    background-color: #111;
+}
+
+.prompt {
+    color: #0f0; /* Green prompt */
+    margin-right: 6px;
+    white-space: pre;
+}
+
+#terminal-input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    color: inherit;
+    outline: none;
+    font-family: inherit;
+    font-size: inherit;
+    caret-color: inherit;
+    min-width: 0;
+}
+.time{
+    opacity: 0.5;
+}
+
+.help-title {
+    margin-bottom: 10px;
+    color: #6272a4; /* Dracula comment color or similar subdued color */
+}
+
+.help-commands {
+    display: grid; /* Use grid for better layout */
+    grid-template-columns: 1fr 2fr; /* Adjust columns as needed */
+    gap: 5px 10px; /* Adjust gap between items */
+}
+
+.command-name {
+    color: #f8f8f2; /* White or off-white */
+    font-weight: normal; /* Remove bold */
+}
+
+.command-separator {
+    margin: 0 5px;
+    color: #6272a4;
+}
+
+.command-description {
+    color: #6272a4; /* Subdued color for description */
+}
+/* Style for links (including project names and contact links) */
+a {
+    color: #8be9fd; /* A brighter, more readable blue/cyan */
+    text-decoration: none; /* Remove underlines by default */
+    transition: color 0.2s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+    color: #bd93f9; /* A purple/magenta on hover for contrast */
+    text-decoration: underline; /* Add underline on hover for clarity */
+}
+
+.ascii-portrait {
+    display: inline-block; /* Crucial for background to wrap content */
+    font-size: 6px;      /* Adjust as needed */
+    line-height: 0.5em;   /* Adjust to fine-tune vertical spacing */
+    vertical-align: top; /* Prevent extra vertical space */
+    white-space: pre; /* Preserve whitespace and line breaks */
+    background-color: #eee; /* Light gray background */
+    color: #111;       /* Dark gray text (for contrast) */
+    padding: 5px;       /* Add some padding */
+    border-radius: 3px; /* Optional rounded corners */
+    transform: scale(0.4); /* Adjust scaling as needed */
+    transform-origin: top left;
+    margin-bottom: -92em;
+}
+.response {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure it doesn’t block terminal input */
+    background-color: transparent; /* Make sure it's not blocking visuals */
+}
+
+.matrix span {
+    position: absolute;
+    color: #0f0; /* Green color for Matrix effect */
+    font-size: 16px;
+    animation: fall 4s linear infinite;
+    opacity: 0.7;
+}
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1; /* Ensure it doesn’t block terminal input */
+    background-color: transparent; /* Make sure it's not blocking visuals */
+}
+.terminal {
+    background-color: rgba(0, 0, 0, 0.8); /* Black with slight transparency */
+    border: 1px solid #333;
+    position: relative; /* Ensure it stacks above the Matrix background */
+    z-index: 1; /* Stays above the Matrix effect */
+}
+
+.matrix span {
+    position: absolute;
+    color: #0f0; /* Green color for Matrix effect */
+    font-size: 16px;
+    animation: fall 4s linear infinite;
+    opacity: 0.7;
+}
+.matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure it doesn’t block terminal input */
+    background-color: transparent; /* Make sure it's not blocking visuals */
+}
+
+.prompt {
+    color: #0f0;
+    font-weight: bold;
+    text-shadow: 0 0 5px #0f0;
+}
+.terminal {
+    border: 1px solid #0f0;
+    box-shadow: 0 0 10px #0f0; /* Glowing green border */
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100%); /* Start above the viewport */
+        opacity: .81; /* Fully visible */
+    }
+    to {
+        transform: translateY(100vh); /* Move below the viewport */
+        opacity: 0; /* Fade out */
+    }
+
+    
+}
+.skills-section {
+    margin: 20px 0;
+    line-height: 1.6;
+    color: #ddd;
+}
+
+.skills-section h3 {
+    color: #0f0; /* Terminal green for headings */
+    font-size: 1.5rem;
+}
+
+.skills-section h4 {
+    margin-top: 10px;
+    color: #88ff88; /* Softer green for subheadings */
+    font-size: 1.2rem;
+}
+
+.skills-category p {
+    margin-left: 15px;
+}
+
+.skill {
+    display: inline-block;
+    margin: 2px 5px;
+    padding: 2px 8px;
+    border-radius: 5px;
+    background-color: rgba(15, 255, 15, 0.1); /* Soft green highlight */
+    border: 1px solid rgba(15, 255, 15, 0.3);
+    color: #0f0;
+    font-weight: bold;
+    font-family: monospace;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skill:hover {
+    background-color: #0f0; /* Highlight on hover */
+    color: #000; /* Inverse text color */
+}

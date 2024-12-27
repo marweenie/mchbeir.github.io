@@ -1,0 +1,11 @@
+{
+    "name": "terminal-portfolio",
+    "version": "1.0.0",
+    "description": "Terminal style portfolio",
+    "scripts": {
+      "start": "live-server"
+    },
+    "devDependencies": {
+      "live-server": "^1.2.2"
+    }
+  }

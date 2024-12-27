@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marwa's Portfolio</title>
+    <link rel="stylesheet" href="assets/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>  
+    <div class="app-wrapper">
+        <nav class="nav">
+            <div class="nav-info-block">
+                <div class="nav-link" data-command="whoami"><span>[</span>Marwa Chbeir<span>]</span></div>
+                <div class="nav-links">
+                    <a href="#" class="nav-link" data-command="contact"><span>[</span>contact<span>]</span></a>
+                    <a href="#" class="nav-link" data-command="about"><span>[</span>about<span>]</span></a>
+                    <a href="#" class="nav-link" data-command="portrait"><span>[</span>portrait<span>]</span></a>
+                </div>
+            </div>
+            <div class="nav-info-block bottom">
+                <div class="nav-link disabled" data-command="job"><span>[</span>Full Stack Dev<span>]</span></div>
+                <div class="nav-link time" data-command="time">14:22:30</div>
+            </div>
+        </nav>
+        <div class="terminal">
+            <div class="terminal-content">
+                <div id="terminal-output">
+                </div>
+                <div class="terminal-input">
+                    <span class="prompt">&gt;</span>
+                    <div id="terminal-input" contenteditable="true"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
